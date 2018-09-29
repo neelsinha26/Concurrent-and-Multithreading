@@ -1,7 +1,8 @@
+package DeadLocks;
 
 class Runner1 implements Runnable{
 
-// it will be executed in a distinct thread
+    // it will be executed in a distinct thread
     @Override
     public void run() {
         for (int i = 0; i <10 ; i++) {
@@ -10,7 +11,7 @@ class Runner1 implements Runnable{
     }
 }
 
-class Runner2 implements Runnable{
+ class Runner2 implements Runnable{
 
 
     @Override
