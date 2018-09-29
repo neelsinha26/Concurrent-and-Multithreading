@@ -4,14 +4,18 @@ package DeadLocks;
 
 public class Syncronized1 {
 
-    public static int counter = 0;
+    private static int counter = 0;
+
+    public static synchronized void increase(){
+        counter++;
+    }
 
     public static void process() {
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < 1000 ; i++) {
-                    counter++;
+                    increase();
                 }
             }
         });
@@ -20,7 +24,7 @@ public class Syncronized1 {
             @Override
             public void run() {
                 for (int i = 0; i < 1000 ; i++) {
-                    counter++;
+                    increase();
                 }
             }
         });
